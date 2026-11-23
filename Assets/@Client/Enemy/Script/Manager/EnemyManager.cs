@@ -23,8 +23,9 @@ public class EnemyManager : MonoBehaviour
         enemyList = new List<Enemy>();
     }
 
-    public void Init(Player player)
+    public void Init(Player player, Action<int> onEnemyDie)
     {
+        this.onEnemyDie = onEnemyDie;
         StartCoroutine(CoSpawnEnemies(player));
     }
 
@@ -65,16 +66,17 @@ public class EnemyManager : MonoBehaviour
             = go.GetComponent<Enemy>();
         if(enemyComponent != null)
         {
-            enemyComponent.Init(player,RemoveEnemy);
+            enemyComponent.Init(player, OnEnemyDie);
         }
 
         enemyList.Add(enemyComponent);
 
     }
 
-    private void OnEnemyDie(Enemy enemy)
+    private void OnEnemyDie(Enemy enemy, int score)
     {
         RemoveEnemy(enemy);
+        onEnemyDie?.Invoke(score);
     }
 
     private void RemoveEnemy(Enemy enemy)
