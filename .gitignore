@@ -136,3 +136,12 @@ crashlytics-build.properties
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+
+#/[Aa]ssets/Casual Game Sounds U6/
+#/[Aa]ssets/JMO Assets/
+#/[Aa]ssets/Free Low Poly Weapons/
+#/[Aa]ssets/LUShvalleySound/
+
+/[Aa]ssets/@ExternalAssets/
+
